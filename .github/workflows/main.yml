@@ -43,6 +43,7 @@ jobs:
       - name: End Docker
         run: npm run ci:e2e:teardown
       - name: Deploy heroku
-        run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=salty-beyond-68789
         env:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=salty-beyond-68789
+
