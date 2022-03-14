@@ -32,16 +32,6 @@ jobs:
           java-version: '17.x'
       - name: Install node.js packages
         run: npm install
-      - name: Test Front
-        run: npm run ci:frontend:test
-      - name: Test Back
-        run: chmod +x mvnw && npm run ci:backend:test
-      - name: Test Integration
-        run: ./mvnw -ntp verify -DskipTests --batch-mode "-Pprod" "-Pe2e" "-Denforcer.skip=true" 
-      - name: Prepare Docker
-        run: npm run ci:e2e:prepare:docker
-      - name: End Docker
-        run: npm run ci:e2e:teardown
       - name: Deploy heroku
         env:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
