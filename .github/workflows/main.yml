@@ -40,7 +40,5 @@ jobs:
         run: ./mvnw -ntp verify -DskipTests --batch-mode "-Pprod" "-Pe2e" "-Denforcer.skip=true"
       - name: Prepare Docker
         run: npm run ci:e2e:prepare:docker
-      - name: e2e
-        run: npm run ci:e2e:run
       - name: End Docker
         run: npm run ci:e2e:teardown
