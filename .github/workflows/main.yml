@@ -30,6 +30,11 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17.x'
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "salty-beyond-68789"
+          heroku_email: "bulcourn@3il.fr"
       - name: Install node.js packages
         run: npm install
       - name: Test Front
@@ -42,5 +47,5 @@ jobs:
         run: npm run ci:e2e:prepare:docker
       - name: End Docker
         run: npm run ci:e2e:teardown
-      - name: Deploy heroku
-        run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=salty-beyond-68789
+      #- name: Deploy heroku
+      #  run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=salty-beyond-68789
