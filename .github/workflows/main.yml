@@ -45,4 +45,4 @@ jobs:
       - name: Deploy heroku
         env:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-        run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=salty-beyond-68789
+        run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/java -Dheroku.appName=salty-beyond-68789
